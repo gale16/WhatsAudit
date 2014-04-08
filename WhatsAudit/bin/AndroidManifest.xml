@@ -23,8 +23,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.api.whatsaudit.MainActivityMenu"
+            android:name="org.api.whatsaudit.MainMenu"
             android:label="@string/title_activity_main_activity_m" >
+        </activity>
+        <activity
+            android:name="org.api.whatsaudit.MainRegistro"
+            android:label="@string/title_activity_main_registro" >
         </activity>
     </application>
 

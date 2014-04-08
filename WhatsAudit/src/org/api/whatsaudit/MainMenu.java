@@ -12,12 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.os.Build;
 
-public class MainActivityMenu extends Activity {
+public class MainMenu extends Activity {
 	
 	private Button butConsultar;
 	private Button butGestionar;
 	private Button butContestar;
-	private Button butRegistro;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +26,7 @@ public class MainActivityMenu extends Activity {
 		butConsultar = (Button) findViewById(R.id.buttonConsultar);
 		butContestar = (Button) findViewById(R.id.buttonContestar);
 		butGestionar = (Button) findViewById(R.id.buttonGestionar);
-		butRegistro = (Button) findViewById(R.id.buttonRegistro);
+
 		
 		if(getIntent().getExtras().getBoolean("Invisible")){
 			butGestionar.setVisibility(View.INVISIBLE);

@@ -17,9 +17,11 @@ import android.os.Build;
 public class MainActivity extends Activity {
 	
 	private Button butEntrar;
+	private Button butRegistro;
 	private EditText editUsuario;
 	private EditText editContraseña;
-	
+	private Intent intentMenu;
+	private Intent intentRegistro;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				boolean invisible = false;
-				Intent intentMenu = new Intent(MainActivity.this,MainActivityMenu.class);
+				intentMenu = new Intent(MainActivity.this,MainMenu.class);
 				
 				if(!editContraseña.getText().toString().equals("admin")){
 					invisible = true;
@@ -46,6 +48,16 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		butRegistro = (Button) findViewById(R.id.buttonRegistro);
+		butRegistro.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				intentRegistro = new Intent(MainActivity.this, MainRegistro.class);
+				startActivity(intentRegistro);
+				
+			}
+		});
 		
 
 	}
