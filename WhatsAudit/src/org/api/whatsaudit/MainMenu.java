@@ -3,6 +3,7 @@ package org.api.whatsaudit;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -31,17 +32,33 @@ public class MainMenu extends Activity {
 		if(getIntent().getExtras().getBoolean("Invisible")){
 			butGestionar.setVisibility(View.INVISIBLE);
 		}
+		
+		butGestionar.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intentGestionar = new Intent (getApplicationContext(),MainGestionar.class);
+				startActivity(intentGestionar);	
+			}
+		});
+		
+		butConsultar.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intentConsultar = new Intent (getApplicationContext(),MainConsultar.class);
+				startActivity(intentConsultar);	
+			}
+		});
+		
+		butContestar.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intentContestar = new Intent (getApplicationContext(),MainContestar.class);
+				startActivity(intentContestar);	
+			}
+		});
 
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main_activity_m, menu);
-		return true;
-	}
-
-
-
 }

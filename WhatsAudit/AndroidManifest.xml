@@ -24,11 +24,26 @@
         </activity>
         <activity
             android:name="org.api.whatsaudit.MainMenu"
-            android:label="@string/title_activity_main_activity_m" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="org.api.whatsaudit.MainRegistro"
-            android:label="@string/title_activity_main_registro" >
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="org.api.whatsaudit.MainConsultar"
+            android:label="@string/app_name" >
+        </activity>
+        
+     	<activity
+            android:name="org.api.whatsaudit.MainContestar"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="org.api.whatsaudit.MainGestionar"
+            android:label="@string/app_name" >
         </activity>
     </application>
 

@@ -6,5 +6,8 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main_activity_m">MainActivityM</string>
     <string name="title_activity_main_registro">MainRegistro</string>
+    
+    <string name="Anadir"> Añadir</string>
+    <string name="Borrar"> Borrar</string>
 
 </resources>
