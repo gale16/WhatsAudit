@@ -26,11 +26,12 @@ public class LaBD extends SQLiteOpenHelper{
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE Usuarios ('idUser' INTEGER PRIMARY KEY	AUTOINCREMENT NOT NULL, 'Password' TEXT, 'Administardor' TEXT)");
-		db.execSQL("CREATE TABLE Cuestionarios ('NombreCuestionario' TEXT PRIMARY KEY NOT NULL, 'idCreador' INTEGER FOREIGN KEY)");
-		db.execSQL("CREATE TABLE Pregunta ('idPregunta' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Pregunta' TEXT, 'idCuestionario' INTEGER FOREIGN KEY)");
-		db.execSQL("CREATE TABLE Respuesta ('idPregunta' INTEGER PRIMARY FOREIGN KEY, 'idUser' INTEGER PRIMARY FOREIGN KEY, 'Respuesta' TEXT)");
+		db.execSQL("CREATE TABLE Usuarios ('idUser' INTEGER PRIMARY KEY	AUTOINCREMENT NOT NULL, 'Password' TEXT, 'Administrador' TEXT)");
+		db.execSQL("CREATE TABLE Cuestionarios ('NombreCuestionario' TEXT PRIMARY KEY NOT NULL, 'idCreador' INTEGER, FOREIGN KEY (idCreador) REFERENCES Usuarios(idUser))");
+		db.execSQL("CREATE TABLE Pregunta ('idPregunta' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Pregunta' TEXT, 'idCuestionario'  INTEGER, FOREIGN KEY (idCuestionario) REFERENCES Cuestionarios(NombreCuestionario))");
+		db.execSQL("CREATE TABLE Respuesta ('idPregunta' INTEGER , 'idUser' INTEGER , 'Respuesta' TEXT, foreign key (idPregunta) references pregunta(idPregunta), FOREIGN KEY (idUser) REFERENCES Usuarios(idUser), PRIMARY KEY ('idPregunta','idUser') )");
 		
+		db.execSQL("INSERT INTO 'Usuarios' (idUser, Password, Administrador) VALUES (1,'admin', 'si')");
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class LaBD extends SQLiteOpenHelper{
 	}
 	
 	public void insertarUsuario(Integer pId, String pPassword, String pAdmin){
-		String sql = "INSERT INTO Usuarios ('idUser', 'Password', 'Administrador') VALUES ('"+ pId +"','"+ pPassword + "'," + pAdmin + "')";
+		String sql = "INSERT INTO Usuarios ('idUser', 'Password', 'Administrador') VALUES ("+ pId +",'"+ pPassword + "','" + pAdmin + "')";
 		db.execSQL(sql);
 	}
 	
@@ -59,9 +60,22 @@ public class LaBD extends SQLiteOpenHelper{
 		db.execSQL(sql);
 	}
 	
-	public Cursor buscarUsuario(String pUser){
-		String sql = "select * from Usuarios WHERE idUser ='" + pUser +"'";
+	public Cursor buscarUsuario(int pUser){
+		String sql = "SELECT * FROM Usuarios WHERE idUser =" + pUser +"";
 		return db.rawQuery(sql, null);
 		
 	}
+	
+	public Cursor seleccionarTodosUsuarios(){
+		String sql = "SELECT * FROM Usuarios";
+		return db.rawQuery(sql, null);
+		
+	}
+	
+	public Cursor seleccionarTodosCuestionarios(){
+		String sql = "SELECT * FROM Cuestionarios";
+		return db.rawQuery(sql, null);
+		
+	}
+	
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.os.Build;
 
 public class MainRegistro extends Activity {
@@ -44,17 +45,18 @@ public class MainRegistro extends Activity {
 			 */
 			@Override
 			public void onClick(View v) {
+				String idUser, password, admin;
+				idUser = editUser.getText().toString();
+				password = editPassword.getText().toString();
+				
 				if(comprobarSiNoVacio()){
 					if(coincidenContrasenas()){
 						if(usuarioDisponible()){
-							
+							LaBD.getMiBD(getApplicationContext()).insertarUsuario(Integer.valueOf(idUser), password, "No");
 						}
 					}
 				}
-				
 
-				
-				
 			}
 
 		});
@@ -67,6 +69,8 @@ public class MainRegistro extends Activity {
 		if(editUser.getText().toString().compareTo("") != 0 && editPassword.getText().toString().compareTo("") != 0 
 				&& editRepPassword.toString().compareTo("") != 0){
 			noVacio = true;
+			
+			//Toast.makeText(getApplicationContext(), "Campos No Vacio", 2000).show();
 		}
 		
 		return noVacio;
@@ -75,8 +79,9 @@ public class MainRegistro extends Activity {
 	private boolean coincidenContrasenas(){
 		boolean coinciden = false;
 		
-		if(editPassword.getText().toString().compareTo(editRepPassword.toString()) == 0 ){
+		if(editPassword.getText().toString().compareTo(editRepPassword.getText().toString()) == 0 ){
 			coinciden = true;
+			Toast.makeText(getApplicationContext(), "Contraseñas OK", 4000).show();
 		}
 		
 		return coinciden;
@@ -86,11 +91,12 @@ public class MainRegistro extends Activity {
 	private boolean usuarioDisponible() {
 		boolean noUsuario = false;
 		
-		Cursor cursorUsuario = LaBD.getMiBD(getApplicationContext()).buscarUsuario(editUser.getText().toString());
+		Cursor cursorUsuario = LaBD.getMiBD(getApplicationContext()).buscarUsuario(Integer.valueOf(editUser.getText().toString()));
 		
 		cursorUsuario.moveToFirst();
 		if(cursorUsuario.getCount() <= 0){
 			noUsuario = true;
+			Toast.makeText(getApplicationContext(), "usuario OK", 6000).show();
 		}
 		return noUsuario;
 	}
