@@ -72,10 +72,24 @@ public class LaBD extends SQLiteOpenHelper{
 		
 	}
 	
+	
+	
+	
+	
 	public Cursor seleccionarTodosCuestionarios(){
 		String sql = "SELECT * FROM Cuestionarios";
 		return db.rawQuery(sql, null);
 		
+	}
+	
+	public void borrarPlantilla(String pNombre) {
+		String sql = "DELETE FROM Cuestionarios WHERE NombreCuestionario ='" + pNombre + "'";
+		db.execSQL(sql);
+	}
+
+	public Cursor buscarPreguntas(String nombrePlantilla) {
+		String sql = "SELECT Pregunta FROM Pregunta WHERE idCuestionario = '" + nombrePlantilla + "'";
+		return db.rawQuery(sql, null);
 	}
 	
 }
