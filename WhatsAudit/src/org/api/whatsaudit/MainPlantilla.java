@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainPlantilla extends Activity {
 	
@@ -33,6 +34,9 @@ public class MainPlantilla extends Activity {
 			@Override
 			public void onClick(View v) {
 				LaBD.getMiBD(getApplicationContext()).borrarPlantilla(nombrePlantilla);
+				Toast.makeText(getApplicationContext(), "Se ha borrado correctamente", 2500).show();
+				
+				MainPlantilla.this.finish();
 				
 			}
 		});
@@ -41,6 +45,7 @@ public class MainPlantilla extends Activity {
 	private void mostrarPlantilla(){
 		Cursor aCursor = LaBD.getMiBD(getApplicationContext()).buscarPreguntas(nombrePlantilla);
 		
+		titulo.setText(nombrePlantilla);
 		if(aCursor.moveToFirst()) {
 			pregunta1.setText(aCursor.getString(0));
 			aCursor.moveToNext();

@@ -1,79 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/textNombrePlantilla"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="18dp"
-        android:text="TextView" />
-
-    <Button
-        android:id="@+id/butBorrarPlantilla"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
-        android:text="Borrar" />
-
-    <TextView
-        android:id="@+id/textPregunta1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textNombrePlantilla"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="23dp"
-        android:text="Pregunta 1: " />
-
-    <TextView
-        android:id="@+id/Pregunta1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textPregunta1"
-        android:layout_marginTop="22dp"
-        android:layout_toLeftOf="@+id/butBorrarPlantilla"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/Pregunta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Pregunta1"
-        android:layout_below="@+id/textPregunta2"
-        android:layout_marginTop="19dp"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/textPregunta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textPregunta1"
-        android:layout_below="@+id/Pregunta1"
-        android:layout_marginTop="24dp"
-        android:text="Pregunta 2" />
-
-    <TextView
-        android:id="@+id/textPregunta3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textPregunta2"
-        android:layout_centerVertical="true"
-        android:text="Pregunta 3" />
-
-    <TextView
-        android:id="@+id/Pregunta3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Pregunta2"
-        android:layout_below="@+id/textPregunta3"
-        android:layout_marginTop="23dp"
-        android:text="TextView" />
-
-</RelativeLayout>
+	<RelativeLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" >
+	
+	        
+	        <Button
+	        android:id="@+id/butBorrarPlantilla"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="23dp"
+	        android:text="Borrar" />
+	
+	    <TextView
+	        android:id="@+id/Pregunta2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/Pregunta1"
+	        android:layout_below="@+id/textPregunta2"
+	        android:layout_marginTop="19dp"
+	        android:text="TextView" />
+	
+	    <TextView
+	        android:id="@+id/textPregunta2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/textPregunta1"
+	        android:layout_below="@+id/Pregunta1"
+	        android:layout_marginTop="24dp"
+	        android:text="Pregunta 2" />
+	
+	    <TextView
+	        android:id="@+id/textPregunta3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/textPregunta2"
+	        android:layout_centerVertical="true"
+	        android:text="Pregunta 3" />
+	
+	    <TextView
+	        android:id="@+id/Pregunta3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/Pregunta2"
+	        android:layout_below="@+id/textPregunta3"
+	        android:layout_marginTop="23dp"
+	        android:text="TextView" />
+	
+	    <TextView
+	        android:id="@+id/textPregunta1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textNombrePlantilla"
+	        android:layout_marginRight="18dp"
+	        android:layout_marginTop="23dp"
+	        android:layout_toLeftOf="@+id/butBorrarPlantilla"
+	        android:text="Pregunta 1: " />
+	
+	    <TextView
+	        android:id="@+id/Pregunta1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/textNombrePlantilla"
+	        android:layout_below="@+id/textPregunta1"
+	        android:layout_marginTop="24dp"
+	        android:text="TextView" />
+	
+	    <TextView
+	        android:id="@+id/textNombrePlantilla"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginTop="18dp"
+	        android:layout_toRightOf="@+id/textPregunta1"
+	        android:ems="10"
+	        android:text="TextView" />
+	
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/textPregunta1"
+	        android:layout_alignLeft="@+id/textPregunta1"
+	        android:text = "TITULO" />
+	
+	</RelativeLayout>

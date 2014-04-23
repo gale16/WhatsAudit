@@ -18,6 +18,8 @@ public class MainGestionar extends FragmentActivity implements IListFragmentList
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_gestionar);
+		FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
+		details.mostrarTodos();
 		
 	}
 	
@@ -28,15 +30,21 @@ public class MainGestionar extends FragmentActivity implements IListFragmentList
 		return true;
 	}
 	
+	
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 			case R.id.Anadir:
-				FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
-				details.mostrarTodos();
+				Intent intAnadir = new Intent(getApplicationContext(), MainAnadirPlantilla.class);
+				startActivity(intAnadir);
+				
 				
 			break;
 			case R.id.Borrar:
 
+			break;
+			case R.id.Actualizar:
+				FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
+				details.mostrarTodos();
 			break;
 				
 			default:

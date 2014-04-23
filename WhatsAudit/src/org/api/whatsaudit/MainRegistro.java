@@ -53,8 +53,19 @@ public class MainRegistro extends Activity {
 					if(coincidenContrasenas()){
 						if(usuarioDisponible()){
 							LaBD.getMiBD(getApplicationContext()).insertarUsuario(Integer.valueOf(idUser), password, "No");
+							Toast.makeText(getApplicationContext(), "Te has registrado correctamente", 2000).show();
+							MainRegistro.this.finish();
+						}
+						else{
+							Toast.makeText(getApplicationContext(), "Ese usuario está escogido. Elija otro", 2000).show();
 						}
 					}
+					else{
+						Toast.makeText(getApplicationContext(), "No coinciden las contraseñas", 2000).show();
+					}
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "Hay algún campo que está vacío", 2000).show();
 				}
 
 			}
@@ -81,7 +92,7 @@ public class MainRegistro extends Activity {
 		
 		if(editPassword.getText().toString().compareTo(editRepPassword.getText().toString()) == 0 ){
 			coinciden = true;
-			Toast.makeText(getApplicationContext(), "Contraseñas OK", 4000).show();
+			//Toast.makeText(getApplicationContext(), "Contraseñas OK", 4000).show();
 		}
 		
 		return coinciden;
@@ -96,7 +107,7 @@ public class MainRegistro extends Activity {
 		cursorUsuario.moveToFirst();
 		if(cursorUsuario.getCount() <= 0){
 			noUsuario = true;
-			Toast.makeText(getApplicationContext(), "usuario OK", 6000).show();
+			//Toast.makeText(getApplicationContext(), "usuario OK", 6000).show();
 		}
 		return noUsuario;
 	}

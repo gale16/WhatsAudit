@@ -1,65 +1,67 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
-
-    <TextView
-        android:id="@+id/textUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="39dp"
-        android:text="Usuario" />
-
-    <Button
-        android:id="@+id/buttonEntrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonRegistro"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="33dp"
-        android:text="Entrar" />
-
-    <EditText
-        android:id="@+id/editTextContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editTextUsuario"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:inputType="textPassword" />
-
-    <TextView
-        android:id="@+id/textContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editTextContrasena"
-        android:layout_alignLeft="@+id/textUsuario"
-        android:layout_marginBottom="30dp"
-        android:text="Contraseña" />
-
-    <EditText
-        android:id="@+id/editTextUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textContrasena"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="27dp"
-        android:ems="10" />
-
-    <Button
-        android:id="@+id/buttonRegistro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="66dp"
-        android:text="Registrarse" />
-
-</RelativeLayout>
+      
+	<RelativeLayout 
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+      	xmlns:tools="http://schemas.android.com/tools"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin"
+	    tools:context=".MainActivity" >
+	
+	    <TextView
+	        android:id="@+id/textUsuario"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/editText1"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginTop="39dp"
+	        android:text="Usuario" />
+	
+	    <Button
+	        android:id="@+id/buttonEntrar"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/buttonRegistro"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="33dp"
+	        android:text="Entrar" />
+	
+	    <EditText
+	        android:id="@+id/editTextContrasena"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/editTextUsuario"
+	        android:layout_centerVertical="true"
+	        android:ems="10"
+	        android:inputType="textPassword" />
+	
+	    <TextView
+	        android:id="@+id/textContrasena"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/editTextContrasena"
+	        android:layout_alignLeft="@+id/textUsuario"
+	        android:layout_marginBottom="30dp"
+	        android:text="Contraseña" />
+	
+	    <EditText
+	        android:id="@+id/editTextUsuario"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_above="@+id/textContrasena"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="27dp"
+	        android:ems="10" />
+	
+	    <Button
+	        android:id="@+id/buttonRegistro"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginBottom="66dp"
+	        android:text="Registrarse" />
+	
+	</RelativeLayout>

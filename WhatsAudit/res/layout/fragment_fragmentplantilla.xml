@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView 
+ xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <RelativeLayout> 
+    <TextView
+        android:id="@+id/NombrePlantilla"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="18dp"
+        android:text="TextView" />
+    
+    <TextView
+        android:id="@+id/textPregunta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/NombrePlantilla"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="23dp"
+        android:text="Pregunta 1: " />
+
+    <TextView
+        android:id="@+id/textPregunta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textPregunta1"
+        android:layout_below="@+id/Pregunta1"
+        android:layout_marginTop="24dp"
+        android:text="Pregunta 2" />
+
+    <TextView
+        android:id="@+id/Pregunta1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/NombrePlantilla"
+        android:layout_below="@+id/textPregunta1"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="22dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/Pregunta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/Pregunta2"
+        android:layout_below="@+id/textPregunta3"
+        android:layout_marginTop="35dp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/Pregunta2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textPregunta2"
+        android:layout_marginTop="32dp"
+        android:layout_toRightOf="@+id/textPregunta2"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textPregunta3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textPregunta2"
+        android:layout_below="@+id/Pregunta2"
+        android:layout_marginTop="41dp"
+        android:text="Pregunta 3" />
+
+</RelativeLayout>
+</ScrollView>

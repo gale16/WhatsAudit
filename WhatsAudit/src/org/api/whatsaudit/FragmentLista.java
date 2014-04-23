@@ -64,9 +64,9 @@ public class FragmentLista extends ListFragment {
 	
 	public void mostrarTodos(){
 		// Para probar
-		Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosUsuarios();
+		//Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosUsuarios();
 		
-		//Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosCuestionarios();
+		Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosLosCuestionarios();
 		adaptador.clear();
 		String nombre = "";
 		

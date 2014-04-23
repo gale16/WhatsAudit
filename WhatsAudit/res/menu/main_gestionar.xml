@@ -13,6 +13,11 @@
 	    android:icon="@android:drawable/ic_menu_delete" 
 	    android:title="@string/Borrar"
 	  />
-    
+	
+  	<item
+		android:id="@+id/Actualizar"
+		android:showAsAction="always"
+		android:icon="@android:drawable/ic_popup_sync"
+		android:title="Actualizar"/>
 
 </menu>

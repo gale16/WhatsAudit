@@ -40,6 +40,8 @@ public class LaBD extends SQLiteOpenHelper{
 		
 	}
 	
+	
+	// TABLA USUARIOS
 	public void insertarUsuario(Integer pId, String pPassword, String pAdmin){
 		String sql = "INSERT INTO Usuarios ('idUser', 'Password', 'Administrador') VALUES ("+ pId +",'"+ pPassword + "','" + pAdmin + "')";
 		db.execSQL(sql);
@@ -61,7 +63,7 @@ public class LaBD extends SQLiteOpenHelper{
 	}
 	
 	public Cursor buscarUsuario(int pUser){
-		String sql = "SELECT * FROM Usuarios WHERE idUser =" + pUser +"";
+		String sql = "SELECT * FROM Usuarios WHERE idUser ='" + pUser + "'";
 		return db.rawQuery(sql, null);
 		
 	}
@@ -72,11 +74,8 @@ public class LaBD extends SQLiteOpenHelper{
 		
 	}
 	
-	
-	
-	
-	
-	public Cursor seleccionarTodosCuestionarios(){
+	// TABLA CUESTIONARIOS
+	public Cursor seleccionarTodosLosCuestionarios(){
 		String sql = "SELECT * FROM Cuestionarios";
 		return db.rawQuery(sql, null);
 		
@@ -87,9 +86,26 @@ public class LaBD extends SQLiteOpenHelper{
 		db.execSQL(sql);
 	}
 
+	public Cursor comprobarSiExistePlantilla(String pNombre) {
+		String sql = "SELECT * FROM Cuestionarios WHERE NombreCuestionario = '" + pNombre + "'";
+		return db.rawQuery(sql, null);
+	}
+	
+	public void insertarCuestionario(String pNombre){
+		String sql = "INSERT INTO Cuestionarios ('NombreCuestionario') VALUES ('" + pNombre + "')";
+		db.execSQL(sql);
+	}	
+	
+	// TABLA PREGUNTA
 	public Cursor buscarPreguntas(String nombrePlantilla) {
 		String sql = "SELECT Pregunta FROM Pregunta WHERE idCuestionario = '" + nombrePlantilla + "'";
 		return db.rawQuery(sql, null);
 	}
 	
+	public void insertarPregunta(int pId, String pCuestionario, String pPregunta){
+//		String sql = "INSERT INTO Pregunta ('idPregunta', 'idCuestionario', 'Pregunta') VALUES ("+ pId +",'"+ pCuestionario + "','" + pPregunta + "')";
+		String sql = "INSERT INTO Pregunta ('idCuestionario', 'Pregunta') VALUES ('"+ pCuestionario + "','" + pPregunta + "')";
+		db.execSQL(sql);
+	}
+
 }
