@@ -58,6 +58,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				intentRegistro = new Intent(MainActivity.this, MainRegistro.class);
+				intentRegistro.putExtra("TipoRegistro", "Usuario");
 				startActivity(intentRegistro);
 				
 			}

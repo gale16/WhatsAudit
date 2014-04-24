@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.os.Build;
@@ -19,16 +20,34 @@ public class MainRegistro extends Activity {
 
 	private Button butAceptar;
 	private EditText editUser, editPassword, editRepPassword;
+	private CheckBox checkBoxAdmin;
+	private String esAdmin;
 	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		esAdmin = "No";
 		setContentView(R.layout.activity_main_registro);
 		
 		editUser = (EditText) findViewById(R.id.editTextUsuario);
 		editPassword = (EditText) findViewById(R.id.editTextContrasena);
 		editRepPassword = (EditText) findViewById(R.id.editTextRepContrasena);
+		checkBoxAdmin = (CheckBox) findViewById(R.id.checkBoxAdmin);
+		
+		if(getIntent().getExtras().getString("TipoRegistro").compareTo("Usuario") == 0){
+			checkBoxAdmin.setVisibility(View.INVISIBLE);
+		}
+		
+		checkBoxAdmin.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				esAdmin = "Si";
+				
+			}
+		});
 		
 		butAceptar = (Button) findViewById(R.id.buttonAceptar);
 		butAceptar.setOnClickListener(new View.OnClickListener() {
@@ -45,14 +64,15 @@ public class MainRegistro extends Activity {
 			 */
 			@Override
 			public void onClick(View v) {
-				String idUser, password, admin;
+				String idUser, password;
+				Toast.makeText(getApplicationContext(), esAdmin, 2000).show();
 				idUser = editUser.getText().toString();
 				password = editPassword.getText().toString();
 				
 				if(comprobarSiNoVacio()){
 					if(coincidenContrasenas()){
 						if(usuarioDisponible()){
-							LaBD.getMiBD(getApplicationContext()).insertarUsuario(Integer.valueOf(idUser), password, "No");
+							LaBD.getMiBD(getApplicationContext()).insertarUsuario(Integer.valueOf(idUser), password, esAdmin);
 							Toast.makeText(getApplicationContext(), "Te has registrado correctamente", 2000).show();
 							MainRegistro.this.finish();
 						}

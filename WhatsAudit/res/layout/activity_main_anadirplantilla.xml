@@ -1,55 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" >
     
-	<RelativeLayout 
-	    xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" >
-	    
-	    <Button
-	        android:id="@+id/butAnadirPlantilla"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentBottom="true"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginBottom="23dp"
-	        android:text="Añadir" />
+	<RelativeLayout
+	    android:layout_width="750dp"
+	    android:layout_height="553dp" >
 	
 	    <TextView
-	        android:id="@+id/tetxView1"
+	        android:id="@+id/txtTituloPlantilla"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/textPregunta1"
 	        android:layout_alignParentTop="true"
 	        android:layout_marginTop="27dp"
 	        android:text="Titulo: " />
-	
-	    <EditText
-	        android:id="@+id/tituloPlantilla"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignBaseline="@+id/tetxView1"
-	        android:layout_alignBottom="@+id/tetxView1"
-	        android:layout_toRightOf="@+id/textPregunta3"
-	        android:ems="10" />
-	
-	    <TextView
-	        android:id="@+id/textPregunta1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textPregunta2"
-	        android:layout_below="@+id/tituloPlantilla"
-	        android:layout_marginTop="39dp"
-	        android:text="Pregunta 1: " />
-	
-	    <EditText
-	        android:id="@+id/AnadPregunta1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/AnadPregunta2"
-	        android:layout_below="@+id/textPregunta1"
-	        android:layout_marginTop="14dp"
-	        android:ems="10" />
 	
 	    <TextView
 	        android:id="@+id/textPregunta2"
@@ -69,23 +34,59 @@
 	        android:layout_below="@+id/AnadPregunta2"
 	        android:layout_marginTop="45dp"
 	        android:text="Pregunta 3" />
-	
-	    <EditText
-	        android:id="@+id/AnadPregunta3"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/AnadPregunta2"
-	        android:layout_below="@+id/textPregunta3"
-	        android:layout_marginTop="30dp"
-	        android:ems="10" />
-	
+
 	    <EditText
 	        android:id="@+id/AnadPregunta2"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_below="@+id/textPregunta2"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginTop="17dp"
+	        android:layout_marginTop="27dp"
+	        android:layout_toRightOf="@+id/textPregunta1"
 	        android:ems="10" />
+
+	    <EditText
+	        android:id="@+id/AnadPregunta1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/AnadPregunta2"
+	        android:layout_below="@+id/textPregunta1"
+	        android:ems="10" />
+
+	    <EditText
+	        android:id="@+id/AnadPregunta3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textPregunta3"
+	        android:layout_marginTop="17dp"
+	        android:layout_toRightOf="@+id/textPregunta1"
+	        android:ems="10" />
+
+	    <Button
+	        android:id="@+id/butAnadirPlantilla"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/AnadPregunta3"
+	        android:layout_below="@+id/AnadPregunta3"
+	        android:layout_marginLeft="47dp"
+	        android:layout_marginTop="59dp"
+	        android:text="Añadir" />
+
+	    <EditText
+	        android:id="@+id/tituloPlantillaa"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignTop="@+id/tituloPlantilla"
+	        android:layout_toRightOf="@+id/textPregunta1"
+	        android:ems="10" />
+
+	    <TextView
+	        android:id="@+id/textPregunta1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/textPregunta2"
+	        android:layout_below="@+id/txtTituloPlantilla"
+	        android:layout_marginTop="19dp"
+	        android:text="Pregunta 1: " />
 	
 	</RelativeLayout>
+</ScrollView>	

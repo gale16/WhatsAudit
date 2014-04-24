@@ -18,7 +18,7 @@ public class MainAnadirPlantilla extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_anadirplantilla);
 		
-		edTitulo = (EditText) findViewById(R.id.tituloPlantilla);
+		edTitulo = (EditText) findViewById(R.id.tituloPlantillaa);
 		edPreg1 = (EditText) findViewById(R.id.AnadPregunta1);
 		edPreg2 = (EditText) findViewById(R.id.AnadPregunta2);
 		edPreg3 = (EditText) findViewById(R.id.AnadPregunta3);

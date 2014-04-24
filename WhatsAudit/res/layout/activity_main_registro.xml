@@ -1,3 +1,5 @@
+
+
 	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    xmlns:tools="http://schemas.android.com/tools"
 	    android:id="@+id/container"
@@ -15,29 +17,6 @@
 	        android:layout_marginLeft="22dp"
 	        android:layout_marginTop="45dp"
 	        android:text="Usuario" />
-	
-	    <Button
-	        android:id="@+id/buttonAceptar"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentBottom="true"
-	        android:layout_marginBottom="19dp"
-	        android:layout_marginLeft="21dp"
-	        android:layout_toRightOf="@+id/textViewContrasena"
-	        android:text="Aceptar" />
-	
-	    <EditText
-	        android:id="@+id/editTextUsuario"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/textViewUsuario"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginTop="32dp"
-	        android:ems="10"
-	        android:inputType="numberDecimal" >
-	
-	        <requestFocus />
-	    </EditText>
 	
 	    <TextView
 	        android:id="@+id/textViewContrasena"
@@ -75,6 +54,33 @@
 	        android:layout_marginBottom="40dp"
 	        android:ems="10"
 	        android:inputType="textPassword" />
+
+	    <CheckBox
+	        android:id="@+id/checkBoxAdmin"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/textViewContrasena"
+	        android:layout_below="@+id/editTextRepContrasena"
+	        android:text="Administrador" />
+
+	    <Button
+	        android:id="@+id/buttonAceptar"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentBottom="true"
+	        android:layout_alignRight="@+id/editTextContrasena"
+	        android:layout_marginBottom="19dp"
+	        android:text="Aceptar" />
+
+	    <EditText
+	        android:id="@+id/editTextUsuario"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/textViewUsuario"
+	        android:layout_centerHorizontal="true"
+	        android:layout_marginTop="21dp"
+	        android:ems="10"
+	        android:inputType="numberDecimal" />
 	
 	</RelativeLayout>
 	

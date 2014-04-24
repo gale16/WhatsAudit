@@ -15,9 +15,7 @@ import android.os.Build;
 
 public class MainMenu extends Activity {
 	
-	private Button butConsultar;
-	private Button butGestionar;
-	private Button butContestar;
+	private Button butConsultar, butGestionar, butContestar, butNuevoAdmin;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +25,12 @@ public class MainMenu extends Activity {
 		butConsultar = (Button) findViewById(R.id.buttonConsultar);
 		butContestar = (Button) findViewById(R.id.buttonContestar);
 		butGestionar = (Button) findViewById(R.id.buttonGestionar);
-
+		butNuevoAdmin = (Button) findViewById(R.id.buttonNuevoAdmin);
+		
 		
 		if(getIntent().getExtras().getBoolean("Invisible")){
 			butGestionar.setVisibility(View.INVISIBLE);
+			butNuevoAdmin.setVisibility(View.INVISIBLE);
 		}
 		
 		butGestionar.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +57,17 @@ public class MainMenu extends Activity {
 			public void onClick(View v) {
 				Intent intentContestar = new Intent (getApplicationContext(),MainContestar.class);
 				startActivity(intentContestar);	
+			}
+		});
+		
+		butNuevoAdmin.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intentNuevoAdmin = new Intent(getApplicationContext(), MainRegistro.class);
+				intentNuevoAdmin.putExtra("TipoRegistro", "Admin");
+				startActivity(intentNuevoAdmin);
+				
 			}
 		});
 

@@ -1,40 +1,53 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
 	
-	<RelativeLayout 
-	    xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:tools="http://schemas.android.com/tools"
+	<RelativeLayout
 	    android:id="@+id/container"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
+	    android:layout_width="704dp"
+	    android:layout_height="568dp"
 	    tools:context="org.api.whatsaudit.MainMenu"
 	    tools:ignore="MergeRootFrame" >
-	
+
 	    <Button
 	        android:id="@+id/buttonConsultar"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignParentLeft="true"
 	        android:layout_alignParentTop="true"
-	        android:layout_marginLeft="92dp"
-	        android:layout_marginTop="69dp"
-	        android:text="Consultar" />
-	
+	        android:layout_marginLeft="62dp"
+	        android:layout_marginTop="70dp"
+	        android:text="Consultar Cuestionario" />
+
 	    <Button
 	        android:id="@+id/buttonGestionar"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/buttonConsultar"
+	        android:layout_alignRight="@+id/buttonConsultar"
 	        android:layout_below="@+id/buttonConsultar"
+	        android:layout_marginRight="14dp"
 	        android:layout_marginTop="65dp"
-	        android:text="Gestionar" />
-	
+	        android:text="Gestionar Plantilla" />
+
 	    <Button
 	        android:id="@+id/buttonContestar"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/buttonGestionar"
+	        android:layout_alignLeft="@+id/buttonConsultar"
 	        android:layout_below="@+id/buttonGestionar"
-	        android:layout_marginTop="69dp"
-	        android:text="Contestar" />
+	        android:layout_marginTop="65dp"
+	        android:text="Contestar Cuestionario" />
+
+	    <Button
+	        android:id="@+id/buttonNuevoAdmin"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_below="@+id/buttonContestar"
+	        android:layout_marginLeft="39dp"
+	        android:layout_marginTop="52dp"
+	        android:text="Insertar nuevo administrador" />
 	
 	</RelativeLayout>
-
+</ScrollView>
