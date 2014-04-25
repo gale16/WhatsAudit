@@ -18,7 +18,6 @@ public class LaBD extends SQLiteOpenHelper{
 	public static LaBD getMiBD(Context context) {
 		if(miLaBD == null) {
 			miLaBD = new LaBD(context, "aDataBase", null, 1);
-		 
 		}
 		
 		return miLaBD;

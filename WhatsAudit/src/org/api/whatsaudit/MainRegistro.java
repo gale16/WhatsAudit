@@ -28,7 +28,7 @@ public class MainRegistro extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		esAdmin = "No";
+		esAdmin = "Si";
 		setContentView(R.layout.activity_main_registro);
 		
 		editUser = (EditText) findViewById(R.id.editTextUsuario);
@@ -38,6 +38,7 @@ public class MainRegistro extends Activity {
 		
 		if(getIntent().getExtras().getString("TipoRegistro").compareTo("Usuario") == 0){
 			checkBoxAdmin.setVisibility(View.INVISIBLE);
+			esAdmin = "No";
 		}
 		
 		checkBoxAdmin.setOnClickListener(new View.OnClickListener() {

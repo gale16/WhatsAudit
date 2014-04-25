@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class MainConsultar extends Activity{
 
-	private TextView txtTitulo, txtPreg1, txtPreg2, txtPreg3;
+	private TextView txtTitulo, txtPreg1, txtPreg2, txtPreg3, txtResp1, txtResp2, txtResp3;
 	private Button butBorrar;
 	private String NombrePlantilla;
 	
@@ -19,13 +19,17 @@ public class MainConsultar extends Activity{
 		setContentView(R.layout.activity_main_consultar);
 		
 		txtTitulo = (TextView) findViewById(R.id.textNombrePlantilla);
-		txtPreg1 = (TextView) findViewById(R.id.Pregunta1);
-		txtPreg2 = (TextView) findViewById(R.id.Pregunta2);
-		txtPreg3 = (TextView) findViewById(R.id.Pregunta3);
+		txtPreg1 = (TextView) findViewById(R.id.consulPreg1);
+		txtPreg2 = (TextView) findViewById(R.id.consulPreg2);
+		txtPreg3 = (TextView) findViewById(R.id.consulPreg3);
+		txtResp1 = (TextView) findViewById(R.id.consulRespues1);
+		txtResp2 = (TextView) findViewById(R.id.consulRespues2);
+		txtResp3 = (TextView) findViewById(R.id.consulRespues3);
+		butBorrar = (Button) findViewById(R.id.butConsulBorrar);
 		
-		NombrePlantilla = getIntent().getExtras().getString("NombrePlantilla");
+		//NombrePlantilla = getIntent().getExtras().getString("NombrePlantilla");
 		
-		rellenarDatosPlantilla();
+		//rellenarDatosPlantilla();
 	}
 
 	private void rellenarDatosPlantilla() {

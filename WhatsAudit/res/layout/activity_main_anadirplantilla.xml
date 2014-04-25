@@ -85,7 +85,7 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/textPregunta2"
 	        android:layout_below="@+id/txtTituloPlantilla"
-	        android:layout_marginTop="19dp"
+	        android:layout_marginTop="51dp"
 	        android:text="Pregunta 1: " />
 	
 	</RelativeLayout>

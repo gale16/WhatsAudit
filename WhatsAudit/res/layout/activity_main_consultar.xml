@@ -1,83 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
+ <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content" >
+        	
+	<RelativeLayout
+	    android:layout_width="355dp"
+	    android:layout_height="453dp" >
 
-    	
-	<RelativeLayout 
-	    xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" >
-	    
-	        <Button
-	        android:id="@+id/butBorrarPlantilla"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentBottom="true"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginBottom="23dp"
-	        android:text="Borrar" />
-	
-	    <TextView
-	        android:id="@+id/Pregunta2"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/Pregunta1"
-	        android:layout_below="@+id/textPregunta2"
-	        android:layout_marginTop="19dp"
-	        android:text="TextView" />
-	
-	    <TextView
-	        android:id="@+id/textPregunta2"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textPregunta1"
-	        android:layout_below="@+id/Pregunta1"
-	        android:layout_marginTop="24dp"
-	        android:text="Pregunta 2" />
-	
-	    <TextView
-	        android:id="@+id/textPregunta3"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textPregunta2"
-	        android:layout_centerVertical="true"
-	        android:text="Pregunta 3" />
-	
-	    <TextView
-	        android:id="@+id/Pregunta3"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/Pregunta2"
-	        android:layout_below="@+id/textPregunta3"
-	        android:layout_marginTop="23dp"
-	        android:text="TextView" />
-	
-	    <TextView
-	        android:id="@+id/textNombrePlantilla"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentTop="true"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginTop="16dp"
-	        android:ems="10"
-	        android:text="TextView" />
-	
-	    <TextView
-	        android:id="@+id/textPregunta1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/textNombrePlantilla"
-	        android:layout_marginRight="18dp"
-	        android:layout_marginTop="23dp"
-	        android:layout_toLeftOf="@+id/butBorrarPlantilla"
-	        android:text="Pregunta 1: " />
-	
-	    <TextView
-	        android:id="@+id/Pregunta1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textNombrePlantilla"
-	        android:layout_below="@+id/textPregunta1"
-	        android:layout_marginTop="24dp"
-	        android:text="TextView" />
-	    
+		<TextView
+		    android:id="@+id/consulTitulo"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/butConsBorrar"
+		    android:layout_alignParentTop="true"
+		    android:layout_marginLeft="69dp"
+		    android:layout_marginTop="21dp"
+		    android:text="TextView" />
+
+		<TextView
+		    android:id="@+id/consulPreg1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_below="@+id/consulTitulo"
+		    android:layout_marginLeft="26dp"
+		    android:layout_marginTop="33dp"
+		    android:text="TextView" />
+
+		<TextView
+		    android:id="@+id/consulPreg2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/consulPreg1"
+		    android:layout_below="@+id/consulRespues1"
+		    android:layout_marginTop="36dp"
+		    android:text="TextView" />
+
+		<TextView
+		    android:id="@+id/consulRespues2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/consulRespues1"
+		    android:layout_below="@+id/consulPreg2"
+		    android:layout_marginTop="15dp"
+		    android:text="TextView" />
+
+		<TextView
+		    android:id="@+id/consulPreg3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/consulPreg2"
+		    android:layout_below="@+id/consulRespues2"
+		    android:layout_marginTop="30dp"
+		    android:text="TextView" />
+
+		<TextView
+		    android:id="@+id/consulRespues3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/consulRespues2"
+		    android:layout_below="@+id/consulPreg3"
+		    android:layout_marginTop="20dp"
+		    android:text="TextView" />
+
+		<TextView
+		    android:id="@+id/consulRespues1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_below="@+id/consulPreg1"
+		    android:layout_marginLeft="19dp"
+		    android:layout_marginTop="29dp"
+		    android:layout_toRightOf="@+id/consulPreg1"
+		    android:text="TextView" />
+
+		<Button
+		    android:id="@+id/butConsulBorrar"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_centerHorizontal="true"
+		    android:layout_marginBottom="45dp"
+		    android:text="BORRAR CUESTIONARIO" />
 	
 	</RelativeLayout>
+</ScrollView>	
