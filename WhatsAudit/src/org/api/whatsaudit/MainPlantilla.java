@@ -43,16 +43,16 @@ public class MainPlantilla extends Activity {
 	}
 	
 	private void mostrarPlantilla(){
-		Cursor aCursor = LaBD.getMiBD(getApplicationContext()).buscarPreguntas(nombrePlantilla);
+		Cursor aCursor = LaBD.getMiBD(getApplicationContext()).buscarPreguntasCuestionario(nombrePlantilla);
 		
 		titulo.setText(nombrePlantilla);
 		if(aCursor.moveToFirst()) {
-			pregunta1.setText(aCursor.getString(0));
-			aCursor.moveToNext();
-			pregunta2.setText(aCursor.getString(0));
-			aCursor.moveToNext();
-			pregunta3.setText(aCursor.getString(0));
-			aCursor.moveToNext();
+			do {
+				pregunta1.setText(aCursor.getString(0));
+				pregunta2.setText(aCursor.getString(1));
+				pregunta3.setText(aCursor.getString(2));
+				
+			} while(aCursor.moveToNext());
 		}
 	}
 

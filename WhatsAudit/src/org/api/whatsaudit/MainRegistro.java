@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.os.Build;
@@ -20,7 +19,6 @@ public class MainRegistro extends Activity {
 
 	private Button butAceptar;
 	private EditText editUser, editPassword, editRepPassword;
-	private CheckBox checkBoxAdmin;
 	private String esAdmin;
 	
 	
@@ -34,22 +32,11 @@ public class MainRegistro extends Activity {
 		editUser = (EditText) findViewById(R.id.editTextUsuario);
 		editPassword = (EditText) findViewById(R.id.editTextContrasena);
 		editRepPassword = (EditText) findViewById(R.id.editTextRepContrasena);
-		checkBoxAdmin = (CheckBox) findViewById(R.id.checkBoxAdmin);
 		
 		if(getIntent().getExtras().getString("TipoRegistro").compareTo("Usuario") == 0){
-			checkBoxAdmin.setVisibility(View.INVISIBLE);
 			esAdmin = "No";
 		}
-		
-		checkBoxAdmin.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				esAdmin = "Si";
 				
-			}
-		});
-		
 		butAceptar = (Button) findViewById(R.id.buttonAceptar);
 		butAceptar.setOnClickListener(new View.OnClickListener() {
 			

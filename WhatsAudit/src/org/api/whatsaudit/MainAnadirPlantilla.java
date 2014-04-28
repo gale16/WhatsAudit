@@ -52,11 +52,13 @@ public class MainAnadirPlantilla extends Activity{
 	
 	private void anadirPreguntas(){
 		String titulo = edTitulo.getText().toString();
+		String pregunta1, pregunta2, pregunta3;
 		
-		LaBD.getMiBD(getApplicationContext()).insertarCuestionario(titulo);
-		LaBD.getMiBD(getApplicationContext()).insertarPregunta(1, titulo, edPreg1.getText().toString());
-		LaBD.getMiBD(getApplicationContext()).insertarPregunta(2, titulo, edPreg2.getText().toString());
-		LaBD.getMiBD(getApplicationContext()).insertarPregunta(3, titulo, edPreg3.getText().toString());
+		pregunta1 = edPreg1.getText().toString();
+		pregunta2 = edPreg2.getText().toString();
+		pregunta3 = edPreg3.getText().toString();
+		
+		LaBD.getMiBD(getApplicationContext()).insertarCuestionario(titulo, 1, pregunta1, pregunta2, pregunta3);
 	}
 	
 	private boolean nombrePlantillaDisponible(String pNombre) {

@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 		editContraseña = (EditText) findViewById(R.id.editTextContrasena);
 		
 		//Borrar cuando no se necesite
-		editUsuario.setText("admin");
+		editUsuario.setText("0");
 		editContraseña.setText("admin");
 		
 		butEntrar = (Button) findViewById(R.id.buttonEntrar);
@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
 				}
 				
 				intentMenu.putExtra("Invisible", invisible);
+				intentMenu.putExtra("idUsuario", Integer.parseInt(editUsuario.getText().toString()));
 				startActivity(intentMenu);
 			}
 		});

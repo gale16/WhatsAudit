@@ -26,11 +26,10 @@ public class LaBD extends SQLiteOpenHelper{
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE Usuarios ('idUser' INTEGER PRIMARY KEY	AUTOINCREMENT NOT NULL, 'Password' TEXT, 'Administrador' TEXT)");
-		db.execSQL("CREATE TABLE Cuestionarios ('NombreCuestionario' TEXT PRIMARY KEY NOT NULL, 'idCreador' INTEGER, FOREIGN KEY (idCreador) REFERENCES Usuarios(idUser))");
-		db.execSQL("CREATE TABLE Pregunta ('idPregunta' INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 'Pregunta' TEXT, 'idCuestionario'  INTEGER, FOREIGN KEY (idCuestionario) REFERENCES Cuestionarios(NombreCuestionario))");
-		db.execSQL("CREATE TABLE Respuesta ('idPregunta' INTEGER , 'idUser' INTEGER , 'Respuesta' TEXT, foreign key (idPregunta) references pregunta(idPregunta), FOREIGN KEY (idUser) REFERENCES Usuarios(idUser), PRIMARY KEY ('idPregunta','idUser') )");
+		db.execSQL("CREATE TABLE Cuestionarios ('NombreCuestionario' TEXT PRIMARY KEY NOT NULL, 'idCreador' INTEGER, Pregunta1 TEXT, Pregunta2 TEXT, Pregunta3 TEXT, FOREIGN KEY (idCreador) REFERENCES Usuarios(idUser))");
+		db.execSQL("CREATE TABLE CuestionariosRespondidos ('NombreCuestionario' TEXT, 'idUser' INTEGER, 'Respuesta1' TEXT, 'Respuesta2' TEXT, 'Respuesta3' TEXT, FOREIGN KEY (idUser) REFERENCES Usuarios(idUser), FOREIGN KEY (NombreCuestionario) REFERENCES Cuestionarios(NombreCuestionario), PRIMARY KEY ('NombreCuestionario', 'idUser'))");
 		
-		db.execSQL("INSERT INTO 'Usuarios' (idUser, Password, Administrador) VALUES (1,'admin', 'si')");
+		db.execSQL("INSERT INTO 'Usuarios' (idUser, Password, Administrador) VALUES (0,'admin', 'si')");
 	}
 
 	@Override
@@ -76,8 +75,7 @@ public class LaBD extends SQLiteOpenHelper{
 	// TABLA CUESTIONARIOS
 	public Cursor seleccionarTodosLosCuestionarios(){
 		String sql = "SELECT * FROM Cuestionarios";
-		return db.rawQuery(sql, null);
-		
+		return db.rawQuery(sql, null);	
 	}
 	
 	public void borrarPlantilla(String pNombre) {
@@ -90,21 +88,47 @@ public class LaBD extends SQLiteOpenHelper{
 		return db.rawQuery(sql, null);
 	}
 	
-	public void insertarCuestionario(String pNombre){
-		String sql = "INSERT INTO Cuestionarios ('NombreCuestionario') VALUES ('" + pNombre + "')";
+	public void insertarCuestionario(String pNombre, int pCreador, String pPregunta1, String pPregunta2, String pPregunta3){
+		String sql = "INSERT INTO Cuestionarios ('NombreCuestionario', 'idCreador', 'Pregunta1', 'Pregunta2', 'Pregunta3') VALUES ('" + pNombre + "','" + pCreador +  "','" + pPregunta1 + "','" + pPregunta2 + "','" + pPregunta3 + "')";
 		db.execSQL(sql);
 	}	
 	
-	// TABLA PREGUNTA
-	public Cursor buscarPreguntas(String nombrePlantilla) {
-		String sql = "SELECT Pregunta FROM Pregunta WHERE idCuestionario = '" + nombrePlantilla + "'";
+	public Cursor buscarCuestionariosDeUsuario(int pUsuario) {
+		String sql = "SELECT * FROM Cuestionarios WHERE idCreador = '" + pUsuario + "'";
 		return db.rawQuery(sql, null);
 	}
 	
-	public void insertarPregunta(int pId, String pCuestionario, String pPregunta){
-//		String sql = "INSERT INTO Pregunta ('idPregunta', 'idCuestionario', 'Pregunta') VALUES ("+ pId +",'"+ pCuestionario + "','" + pPregunta + "')";
-		String sql = "INSERT INTO Pregunta ('idCuestionario', 'Pregunta') VALUES ('"+ pCuestionario + "','" + pPregunta + "')";
-		db.execSQL(sql);
+	public Cursor buscarPreguntasCuestionario(String pNombre) {
+		String sql = "SELECT Pregunta1, Pregunta2, Pregunta3 FROM Cuestionarios WHERE NombreCuestionario = '" + pNombre + "'";
+		return db.rawQuery(sql, null);
 	}
+	
+	// TABLA CUESTIONARIOSRESPONDIDOS
+	
+	public Cursor seleccionarTodosLosCuestionariosResp(){
+		String sql = "SELECT * FROM CuestionariosRespondidos";
+		return db.rawQuery(sql, null);	
+	}
+	
+	public Cursor buscarCuestionariosRespDeUsuario(int pUsuario) {
+		String sql = "SELECT * FROM CuestionariosRespondidos WHERE idUser =" + pUsuario;
+		return db.rawQuery(sql, null);
+	}
+	
+	
+//	// TABLA PREGUNTA
+//	public Cursor buscarPreguntas(String nombrePlantilla) {
+//		String sql = "SELECT Pregunta FROM Pregunta WHERE idCuestionario = '" + nombrePlantilla + "'";
+//		return db.rawQuery(sql, null);
+//	}
+//	
+//	public void insertarPregunta(int pId, String pCuestionario, String pPregunta){
+////		String sql = "INSERT INTO Pregunta ('idPregunta', 'idCuestionario', 'Pregunta') VALUES ("+ pId +",'"+ pCuestionario + "','" + pPregunta + "')";
+//		String sql = "INSERT INTO Pregunta ('idCuestionario', 'Pregunta') VALUES ('"+ pCuestionario + "','" + pPregunta + "')";
+//		db.execSQL(sql);
+//	}
+	
 
+		
 }
+

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,8 @@ import android.os.Build;
 public class MainMenu extends Activity {
 	
 	private Button butConsultar, butGestionar, butContestar, butNuevoAdmin;
+	private int idUsuario;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +30,14 @@ public class MainMenu extends Activity {
 		butGestionar = (Button) findViewById(R.id.buttonGestionar);
 		butNuevoAdmin = (Button) findViewById(R.id.buttonNuevoAdmin);
 		
+		idUsuario = getIntent().getExtras().getInt("idUsuario");
 		
 		if(getIntent().getExtras().getBoolean("Invisible")){
 			butGestionar.setVisibility(View.INVISIBLE);
 			butNuevoAdmin.setVisibility(View.INVISIBLE);
+		}
+		else{
+			butContestar.setVisibility(View.INVISIBLE);
 		}
 		
 		butGestionar.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +45,7 @@ public class MainMenu extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intentGestionar = new Intent (getApplicationContext(),MainGestionar.class);
+				intentGestionar.putExtra("idUsuario", idUsuario);
 				startActivity(intentGestionar);	
 			}
 		});
@@ -46,7 +54,8 @@ public class MainMenu extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intentConsultar = new Intent (getApplicationContext(),MainConsultar.class);
+				Intent intentConsultar = new Intent (getApplicationContext(), MainConsultar.class);
+				intentConsultar.putExtra("idUsuario", idUsuario);
 				startActivity(intentConsultar);	
 			}
 		});
@@ -72,4 +81,6 @@ public class MainMenu extends Activity {
 		});
 
 	}
+	
+
 }

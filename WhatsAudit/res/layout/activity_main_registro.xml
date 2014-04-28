@@ -55,14 +55,6 @@
 	        android:ems="10"
 	        android:inputType="textPassword" />
 
-	    <CheckBox
-	        android:id="@+id/checkBoxAdmin"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/textViewContrasena"
-	        android:layout_below="@+id/editTextRepContrasena"
-	        android:text="Administrador" />
-
 	    <Button
 	        android:id="@+id/buttonAceptar"
 	        android:layout_width="wrap_content"

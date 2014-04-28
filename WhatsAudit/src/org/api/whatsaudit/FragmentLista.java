@@ -30,7 +30,7 @@ public class FragmentLista extends ListFragment {
 
 		iLista.onItemSelected(adaptador.getItem(position).toString());	
 		
-		mostrarTodos();
+		mostrarTodosLosCuestionarios();
 		
 	}
 	
@@ -62,7 +62,7 @@ public class FragmentLista extends ListFragment {
 		}
 
 	
-	public void mostrarTodos(){
+	public void mostrarTodosLosCuestionarios(){
 		// Para probar
 		//Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosUsuarios();
 		
@@ -74,6 +74,38 @@ public class FragmentLista extends ListFragment {
 			do {
 				nombre = aCursor.getString(0);
 				adaptador.add(nombre);
+			} while(aCursor.moveToNext());
+		}
+	}
+	
+	public void mostrarTodosLosCuestionariosResp(int pIdUsuario){
+		Cursor aCursor = LaBD.getMiBD(getActivity()).buscarCuestionariosRespDeUsuario(pIdUsuario);
+		adaptador.clear();
+		String nombre = "";
+		
+		if(aCursor.moveToFirst()) {
+			do {
+				nombre = aCursor.getString(0);
+				adaptador.add(nombre);
+			} while(aCursor.moveToNext());
+		}
+	}
+	
+	public void mostrarTodosLosCuestionariosAdmin(){
+		// Para probar
+		//Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosUsuarios();
+		
+		Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosLosCuestionariosResp();
+		adaptador.clear();
+		String nombre = "";
+		int usuario;
+		
+		if(aCursor.moveToFirst()) {
+			do {
+				nombre = aCursor.getString(0);
+				usuario = aCursor.getInt(1);
+				adaptador.add(nombre + "," + usuario);
+				
 			} while(aCursor.moveToNext());
 		}
 	}

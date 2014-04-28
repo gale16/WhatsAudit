@@ -19,7 +19,7 @@ public class MainGestionar extends FragmentActivity implements IListFragmentList
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_gestionar);
 		FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
-		details.mostrarTodos();
+		details.mostrarTodosLosCuestionarios();
 		
 	}
 	
@@ -44,7 +44,7 @@ public class MainGestionar extends FragmentActivity implements IListFragmentList
 			break;
 			case R.id.Actualizar:
 				FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
-				details.mostrarTodos();
+				details.mostrarTodosLosCuestionarios();
 			break;
 				
 			default:
