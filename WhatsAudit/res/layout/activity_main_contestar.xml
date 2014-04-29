@@ -1,18 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-	<RelativeLayout 
-	     xmlns:android="http://schemas.android.com/apk/res/android"
+	<RelativeLayout
 	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" >
-	    
-	       	    <fragment
-	        android:id="@+id/fragment1"
-	        android:name="org.api.whatsaudit.FragmentLista"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentTop="true"
-	        android:layout_centerHorizontal="true"
-	        android:layout_marginTop="20dp" />
-	    
+	    android:layout_height="529dp" >
+
+		<TextView
+		    android:id="@+id/textView1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_alignParentTop="true"
+		    android:layout_marginLeft="32dp"
+		    android:layout_marginTop="23dp"
+		    android:text="TÍTULO" />
+
+		<TextView
+		    android:id="@+id/textContTitulo"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignBottom="@+id/textView1"
+		    android:layout_marginLeft="74dp"
+		    android:layout_toRightOf="@+id/textView1"
+		    android:text="TextView" />
+
+		<EditText
+		    android:id="@+id/editContResp1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/textContPreg1"
+		    android:layout_below="@+id/textContPreg1"
+		    android:ems="10" />
+
+		<TextView
+		    android:id="@+id/textContPreg2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/editContResp1"
+		    android:layout_below="@+id/editContResp1"
+		    android:layout_marginTop="49dp"
+		    android:text="TextView" />
+
+		<EditText
+		    android:id="@+id/editContResp2"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/textContPreg2"
+		    android:layout_below="@+id/textContPreg2"
+		    android:layout_marginTop="13dp"
+		    android:ems="10" />
+
+		<TextView
+		    android:id="@+id/textContPreg3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/editContResp2"
+		    android:layout_below="@+id/editContResp2"
+		    android:layout_marginTop="52dp"
+		    android:text="TextView" />
+
+		<Button
+		    android:id="@+id/butContAceptar"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignRight="@+id/textContTitulo"
+		    android:layout_marginBottom="36dp"
+		    android:text="Aceptar" />
+
+		<TextView
+		    android:id="@+id/textContPreg1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/textView1"
+		    android:layout_below="@+id/textView1"
+		    android:layout_marginTop="59dp"
+		    android:text="TextView" />
+
+		<EditText
+		    android:id="@+id/editContResp3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignLeft="@+id/textContPreg3"
+		    android:layout_below="@+id/textContPreg3"
+		    android:layout_marginTop="24dp"
+		    android:ems="10" />
 	
 	</RelativeLayout>
+</ScrollView> 

@@ -64,7 +64,8 @@ public class MainMenu extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intentContestar = new Intent (getApplicationContext(),MainContestar.class);
+				Intent intentContestar = new Intent (getApplicationContext(), MainListaContestar.class);
+				intentContestar.putExtra("idUsuario", idUsuario);
 				startActivity(intentContestar);	
 			}
 		});

@@ -89,12 +89,12 @@ public class LaBD extends SQLiteOpenHelper{
 	}
 	
 	public void insertarCuestionario(String pNombre, int pCreador, String pPregunta1, String pPregunta2, String pPregunta3){
-		String sql = "INSERT INTO Cuestionarios ('NombreCuestionario', 'idCreador', 'Pregunta1', 'Pregunta2', 'Pregunta3') VALUES ('" + pNombre + "','" + pCreador +  "','" + pPregunta1 + "','" + pPregunta2 + "','" + pPregunta3 + "')";
+		String sql = "INSERT INTO Cuestionarios ('NombreCuestionario', 'idCreador', 'Pregunta1', 'Pregunta2', 'Pregunta3') VALUES (" + pNombre + ",'" + pCreador +  "','" + pPregunta1 + "','" + pPregunta2 + "','" + pPregunta3 + "')";
 		db.execSQL(sql);
 	}	
 	
 	public Cursor buscarCuestionariosDeUsuario(int pUsuario) {
-		String sql = "SELECT * FROM Cuestionarios WHERE idCreador = '" + pUsuario + "'";
+		String sql = "SELECT * FROM Cuestionarios WHERE idCreador = " + pUsuario;
 		return db.rawQuery(sql, null);
 	}
 	
@@ -115,18 +115,18 @@ public class LaBD extends SQLiteOpenHelper{
 		return db.rawQuery(sql, null);
 	}
 	
+	public void insertarCuestionarioRespondido(String pNombre, int pCreador, String pRespuesta1, String pRespuesta2, String pRespuesta3){
+		String sql = "INSERT INTO CuestionariosRespondidos ('NombreCuestionario', 'idUser', 'Respuesta1', 'Respuesta2', 'Respuesta3') "
+				+ "VALUES ('" + pNombre + "'," + pCreador +  ",'" 
+				+ pRespuesta1 + "','" + pRespuesta2 + "','" + pRespuesta3 + "')";
+		db.execSQL(sql);
+	}	
 	
-//	// TABLA PREGUNTA
-//	public Cursor buscarPreguntas(String nombrePlantilla) {
-//		String sql = "SELECT Pregunta FROM Pregunta WHERE idCuestionario = '" + nombrePlantilla + "'";
-//		return db.rawQuery(sql, null);
-//	}
-//	
-//	public void insertarPregunta(int pId, String pCuestionario, String pPregunta){
-////		String sql = "INSERT INTO Pregunta ('idPregunta', 'idCuestionario', 'Pregunta') VALUES ("+ pId +",'"+ pCuestionario + "','" + pPregunta + "')";
-//		String sql = "INSERT INTO Pregunta ('idCuestionario', 'Pregunta') VALUES ('"+ pCuestionario + "','" + pPregunta + "')";
-//		db.execSQL(sql);
-//	}
+	public Cursor comprobarSiCuestContestado(String pNombre, int pUsuario) {
+		String sql = "SELECT * FROM CuestionariosRespondidos WHERE NombreCuestionario = '" + pNombre + "' AND idUser =" + pUsuario;
+		return db.rawQuery(sql, null);
+	}
+	
 	
 
 		
