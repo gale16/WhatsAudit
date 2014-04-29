@@ -92,8 +92,6 @@ public class FragmentLista extends ListFragment {
 	}
 	
 	public void mostrarTodosLosCuestionariosAdmin(){
-		// Para probar
-		//Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosUsuarios();
 		
 		Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosLosCuestionariosResp();
 		adaptador.clear();
@@ -104,7 +102,7 @@ public class FragmentLista extends ListFragment {
 			do {
 				nombre = aCursor.getString(0);
 				usuario = aCursor.getInt(1);
-				adaptador.add(nombre + "," + usuario);
+				adaptador.add(nombre + ", " + usuario);
 				
 			} while(aCursor.moveToNext());
 		}

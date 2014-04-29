@@ -47,7 +47,7 @@ public class MainListaContestar extends FragmentActivity implements IListFragmen
 		Cursor cursorCuestionario = LaBD.getMiBD(getApplicationContext()).comprobarSiCuestContestado(plantillaSelecc, idUsuario);
 				
 		if(cursorCuestionario.moveToFirst()){
-			if(cursorCuestionario.getCount() == 0){
+			if(cursorCuestionario.getInt(0) == 0){
 				contestado = false;
 			}
 		};

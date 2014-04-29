@@ -47,7 +47,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_below="@+id/textUsuario"
 	        android:layout_centerHorizontal="true"
-	        android:ems="10" />
+	        android:ems="10" 
+	        android:inputType="numberDecimal"/>
 
 	    <TextView
 	        android:id="@+id/textContrasena"

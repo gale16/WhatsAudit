@@ -54,7 +54,7 @@ public class MainMenu extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent intentConsultar = new Intent (getApplicationContext(), MainConsultar.class);
+				Intent intentConsultar = new Intent (getApplicationContext(), MainListaConsultar.class);
 				intentConsultar.putExtra("idUsuario", idUsuario);
 				startActivity(intentConsultar);	
 			}

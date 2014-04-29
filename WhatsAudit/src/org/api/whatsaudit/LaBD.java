@@ -29,7 +29,7 @@ public class LaBD extends SQLiteOpenHelper{
 		db.execSQL("CREATE TABLE Cuestionarios ('NombreCuestionario' TEXT PRIMARY KEY NOT NULL, 'idCreador' INTEGER, Pregunta1 TEXT, Pregunta2 TEXT, Pregunta3 TEXT, FOREIGN KEY (idCreador) REFERENCES Usuarios(idUser))");
 		db.execSQL("CREATE TABLE CuestionariosRespondidos ('NombreCuestionario' TEXT, 'idUser' INTEGER, 'Respuesta1' TEXT, 'Respuesta2' TEXT, 'Respuesta3' TEXT, FOREIGN KEY (idUser) REFERENCES Usuarios(idUser), FOREIGN KEY (NombreCuestionario) REFERENCES Cuestionarios(NombreCuestionario), PRIMARY KEY ('NombreCuestionario', 'idUser'))");
 		
-		db.execSQL("INSERT INTO 'Usuarios' (idUser, Password, Administrador) VALUES (0,'admin', 'si')");
+		db.execSQL("INSERT INTO 'Usuarios' (idUser, Password, Administrador) VALUES (0,'admin', 'Si')");
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class LaBD extends SQLiteOpenHelper{
 	}
 	
 	public void insertarCuestionario(String pNombre, int pCreador, String pPregunta1, String pPregunta2, String pPregunta3){
-		String sql = "INSERT INTO Cuestionarios ('NombreCuestionario', 'idCreador', 'Pregunta1', 'Pregunta2', 'Pregunta3') VALUES (" + pNombre + ",'" + pCreador +  "','" + pPregunta1 + "','" + pPregunta2 + "','" + pPregunta3 + "')";
+		String sql = "INSERT INTO Cuestionarios ('NombreCuestionario', 'idCreador', 'Pregunta1', 'Pregunta2', 'Pregunta3') VALUES ('" + pNombre + "','" + pCreador +  "','" + pPregunta1 + "','" + pPregunta2 + "','" + pPregunta3 + "')";
 		db.execSQL(sql);
 	}	
 	
@@ -123,7 +123,12 @@ public class LaBD extends SQLiteOpenHelper{
 	}	
 	
 	public Cursor comprobarSiCuestContestado(String pNombre, int pUsuario) {
-		String sql = "SELECT * FROM CuestionariosRespondidos WHERE NombreCuestionario = '" + pNombre + "' AND idUser =" + pUsuario;
+		String sql = "SELECT COUNT (*) FROM CuestionariosRespondidos WHERE NombreCuestionario = '" + pNombre + "' AND idUser =" + pUsuario;
+		return db.rawQuery(sql, null);
+	}
+	
+	public Cursor buscarPreguntasDeCuestionario(String pNombre, int pUsuario) {
+		String sql = "SELECT Respuesta1, Respues2, Respues3 FROM CuestionariosRespondidos WHERE NombreCuestionario = '" + pNombre + "' AND idUser =" + pUsuario;
 		return db.rawQuery(sql, null);
 	}
 	
