@@ -1,29 +1,23 @@
 package org.api.whatsaudit;
 
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.os.Build;
+
 
 public class MainActivity extends Activity {
 	
-	private Button butEntrar;
-	private Button butRegistro;
-	private EditText editUsuario;
-	private EditText editContraseña;
-	private Intent intentMenu;
-	private Intent intentRegistro;
+	private Button butEntrar, butRegistro, butSalir;
+	private EditText editUsuario, editContraseña;
+	private Intent intentMenu, intentRegistro;
 	
 	private boolean invisible;
 
@@ -79,6 +73,34 @@ public class MainActivity extends Activity {
 			}
 		});
 		
+		butSalir = (Button) findViewById(R.id.butSalir);
+		butSalir.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				AlertDialog.Builder salirBuilder = new AlertDialog.Builder(MainActivity.this);
+				salirBuilder.setTitle("Salir");
+				salirBuilder.setMessage("¿Quieres salir de la aplicación?");
+				salirBuilder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						MainActivity.this.finish();
+						
+					}
+				});
+				salirBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+						
+					}
+				});
+				salirBuilder.show();
+				
+			}
+		});	
 
 	}
 
@@ -123,4 +145,6 @@ public class MainActivity extends Activity {
 
 		return noExisteUsuario;
 	}
+	
+	
 }
