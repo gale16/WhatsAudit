@@ -30,9 +30,7 @@ public class MainAnadirPlantilla extends Activity{
 			public void onClick(View v) {
 				
 				if(comprobarCamposLLenos()){
-					Toast.makeText(getApplicationContext(), "CamposOK", 2500).show();
 					if(nombrePlantillaDisponible((edTitulo.getText().toString()))){
-						Toast.makeText(getApplicationContext(), "NombreOK", 2500).show();
 						anadirPreguntas();
 						Toast.makeText(getApplicationContext(), "La inserción se ha hecho correctamente", 2500).show();
 						MainAnadirPlantilla.this.finish();

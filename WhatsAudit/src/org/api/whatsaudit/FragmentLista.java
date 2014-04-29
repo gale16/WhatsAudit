@@ -29,9 +29,6 @@ public class FragmentLista extends ListFragment {
 		super.onListItemClick(l, v, position, id);
 
 		iLista.onItemSelected(adaptador.getItem(position).toString());	
-		
-		mostrarTodosLosCuestionarios();
-		
 	}
 	
 	@Override
@@ -63,9 +60,6 @@ public class FragmentLista extends ListFragment {
 
 	
 	public void mostrarTodosLosCuestionarios(){
-		// Para probar
-		//Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosUsuarios();
-		
 		Cursor aCursor = LaBD.getMiBD(getActivity()).seleccionarTodosLosCuestionarios();
 		adaptador.clear();
 		String nombre = "";
@@ -102,7 +96,7 @@ public class FragmentLista extends ListFragment {
 			do {
 				nombre = aCursor.getString(0);
 				usuario = aCursor.getInt(1);
-				adaptador.add(nombre + ", " + usuario);
+				adaptador.add(nombre + "," + usuario);
 				
 			} while(aCursor.moveToNext());
 		}

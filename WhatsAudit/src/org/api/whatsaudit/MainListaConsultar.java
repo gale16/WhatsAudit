@@ -32,7 +32,6 @@ public class MainListaConsultar extends FragmentActivity implements IListFragmen
 		else{
 			FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
 			details.mostrarTodosLosCuestionariosResp(idUser);
-			Toast.makeText(getApplicationContext(), "No entra", 3000).show();
 		}
 			
 		comprobarSiAdmin();
@@ -42,9 +41,18 @@ public class MainListaConsultar extends FragmentActivity implements IListFragmen
 
 	@Override
 	public void onItemSelected(String item) {
+		String cuestionario = item;
+		String usuario = Integer.toString(idUser);
+		if(esAdmin){
+			String [] cuestionarios;
+			cuestionarios = item.split(",");
+			cuestionario = cuestionarios [0];
+			usuario = cuestionarios[1];
+		}
+		
 		Intent intentConsultar = new Intent(getApplicationContext(), MainConsultar.class);
-		intentConsultar.putExtra("idUsuario", idUser);
-		intentConsultar.putExtra("CuestionarioContestado", item);
+		intentConsultar.putExtra("idUsuario", Integer.parseInt(usuario));
+		intentConsultar.putExtra("CuestionarioContestado", cuestionario);
 		startActivity(intentConsultar);
 		
 	}

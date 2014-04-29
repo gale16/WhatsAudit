@@ -15,12 +15,10 @@ public class MainGestionar extends FragmentActivity implements IListFragmentList
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_gestionar);
 		FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
 		details.mostrarTodosLosCuestionarios();
-		
 	}
 	
 

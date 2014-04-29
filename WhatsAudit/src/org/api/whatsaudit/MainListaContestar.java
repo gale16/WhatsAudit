@@ -51,9 +51,7 @@ public class MainListaContestar extends FragmentActivity implements IListFragmen
 				contestado = false;
 			}
 		};
-		
-		return contestado;
-				
+		return contestado;		
 	}
 
 

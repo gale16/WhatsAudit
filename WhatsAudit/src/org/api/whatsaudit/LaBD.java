@@ -49,16 +49,6 @@ public class LaBD extends SQLiteOpenHelper{
 		String sql = "SELECT * FROM Usuarios";
 		return db.rawQuery(sql, null);
 	}
-
-	public void eliminar(String pNombre) {
-		String sql = "DELETE FROM Usuarios WHERE Nombre ='" + pNombre + "'";
-		db.execSQL(sql);
-	}
-
-	public void eliminar(int position) {
-		String sql = "DELETE FROM Usuarios WHERE Codigo ='" + position + "'";
-		db.execSQL(sql);
-	}
 	
 	public Cursor buscarUsuario(int pUser){
 		String sql = "SELECT * FROM Usuarios WHERE idUser ='" + pUser + "'";
@@ -130,6 +120,12 @@ public class LaBD extends SQLiteOpenHelper{
 	public Cursor buscarPreguntasDeCuestionario(String pNombre, int pUsuario) {
 		String sql = "SELECT Respuesta1, Respues2, Respues3 FROM CuestionariosRespondidos WHERE NombreCuestionario = '" + pNombre + "' AND idUser =" + pUsuario;
 		return db.rawQuery(sql, null);
+	}
+
+	public void borrarCuestionarioUsuario(int pIdUser, String pNombrePlantilla) {
+		String sql = "DELETE FROM CuestionariosRespondidos WHERE NombreCuestionario ='" + pNombrePlantilla + "' AND idUser = "+ pIdUser;
+		db.execSQL(sql);
+		
 	}
 	
 	

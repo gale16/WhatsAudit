@@ -74,8 +74,6 @@ public class MainContestar extends Activity{
 		if(preg1.getText().toString().compareTo("") != 0 && preg2.getText().toString().compareTo("") != 0 
 				&& preg3.toString().compareTo("") != 0){
 			noVacio = true;
-			
-			//Toast.makeText(getApplicationContext(), "Campos No Vacio", 2000).show();
 		}
 		
 		return noVacio;

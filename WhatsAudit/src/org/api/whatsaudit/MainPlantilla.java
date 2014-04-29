@@ -1,6 +1,8 @@
 package org.api.whatsaudit;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -33,11 +35,7 @@ public class MainPlantilla extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				LaBD.getMiBD(getApplicationContext()).borrarPlantilla(nombrePlantilla);
-				Toast.makeText(getApplicationContext(), "Se ha borrado correctamente", 2500).show();
-				
-				MainPlantilla.this.finish();
-				
+				mostrarMensaje();	
 			}
 		});
 	}
@@ -54,6 +52,31 @@ public class MainPlantilla extends Activity {
 				
 			} while(aCursor.moveToNext());
 		}
+	}
+	
+	private void mostrarMensaje() {
+		AlertDialog.Builder borrarBuilder = new AlertDialog.Builder(this);
+		borrarBuilder.setTitle("Borrar Plantilla");
+		borrarBuilder.setMessage("¿Quieres borrar la plantilla?");
+		borrarBuilder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				LaBD.getMiBD(getApplicationContext()).borrarPlantilla(nombrePlantilla);
+				Toast.makeText(getApplicationContext(), "Se ha borrado correctamente", 2500).show();
+				MainPlantilla.this.finish();
+				dialog.cancel();	
+			}
+		});
+		borrarBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+				
+			}
+		});
+		borrarBuilder.show();
 	}
 
 }

@@ -2,11 +2,15 @@ package org.api.whatsaudit;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.webkit.WebChromeClient.CustomViewCallback;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainConsultar extends Activity{
 
@@ -17,7 +21,6 @@ public class MainConsultar extends Activity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_consultar);
 		
@@ -36,6 +39,14 @@ public class MainConsultar extends Activity{
 		
 		rellenarDatosPlantilla();
 		
+		butBorrar.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mostrarMensaje();
+			}
+
+		});
 
 	}
 	
@@ -51,14 +62,39 @@ public class MainConsultar extends Activity{
 					txtPreg1.setText(cuestCursor.getString(0).toString());
 					txtPreg2.setText(cuestCursor.getString(1).toString());
 					txtPreg3.setText(cuestCursor.getString(2).toString());
-					txtResp1.setText(respCursor.getString(0).toString());
-					txtResp2.setText(respCursor.getString(0).toString());
-					txtResp3.setText(respCursor.getString(0).toString());
+					txtResp1.setText(respCursor.getString(2).toString());
+					txtResp2.setText(respCursor.getString(3).toString());
+					txtResp3.setText(respCursor.getString(4).toString());
 					
 				} while(cuestCursor.moveToNext());
 			}			
 		}	
 		
+	private void mostrarMensaje() {
+		AlertDialog.Builder borrarBuilder = new AlertDialog.Builder(this);
+		borrarBuilder.setTitle("Borrar Cuestionario");
+		borrarBuilder.setMessage("¿Quieres borrar el cuestionario?");
+		borrarBuilder.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				LaBD.getMiBD(getApplicationContext()).borrarCuestionarioUsuario(idUser,NombrePlantilla);
+				Toast.makeText(getApplicationContext(), "Se ha borrado correctamente", 2500).show();
+				MainConsultar.this.finish();
+				dialog.cancel();
+				
+			}
+		});
+		borrarBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+				
+			}
+		});
+		borrarBuilder.show();
 	}
+}
 
 
