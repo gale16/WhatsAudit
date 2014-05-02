@@ -37,9 +37,7 @@ public class MainGestionar extends FragmentActivity implements IListFragmentList
 				
 				
 			break;
-			case R.id.Borrar:
 
-			break;
 			case R.id.Actualizar:
 				FragmentLista details = (FragmentLista) getSupportFragmentManager().findFragmentById(R.id.fragment1);
 				details.mostrarTodosLosCuestionarios();

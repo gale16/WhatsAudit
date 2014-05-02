@@ -30,6 +30,8 @@ public class LaBD extends SQLiteOpenHelper{
 		db.execSQL("CREATE TABLE CuestionariosRespondidos ('NombreCuestionario' TEXT, 'idUser' INTEGER, 'Respuesta1' TEXT, 'Respuesta2' TEXT, 'Respuesta3' TEXT, FOREIGN KEY (idUser) REFERENCES Usuarios(idUser), FOREIGN KEY (NombreCuestionario) REFERENCES Cuestionarios(NombreCuestionario), PRIMARY KEY ('NombreCuestionario', 'idUser'))");
 		
 		db.execSQL("INSERT INTO 'Usuarios' (idUser, Password, Administrador) VALUES (0,'admin', 'Si')");
+		db.execSQL("INSERT INTO 'Cuestionarios' (NombreCuestionario, idCreador, Pregunta1, Pregunta2, Pregunta3) VALUES ('Cuestionario Inicial', 0, '¿Ha sido fácil completar la tarea?','Si has utilizado el manual, ¿la información ha sido fácil de encontrar?',"
+				+ "'¿La información que encontraste en el manual ha sido fácil de utilizar?' )");
 	}
 
 	@Override
@@ -45,22 +47,12 @@ public class LaBD extends SQLiteOpenHelper{
 		db.execSQL(sql);
 	}
 	
-	public Cursor seleccionar(){
-		String sql = "SELECT * FROM Usuarios";
-		return db.rawQuery(sql, null);
-	}
-	
 	public Cursor buscarUsuario(int pUser){
 		String sql = "SELECT * FROM Usuarios WHERE idUser ='" + pUser + "'";
 		return db.rawQuery(sql, null);
 		
 	}
-	
-	public Cursor seleccionarTodosUsuarios(){
-		String sql = "SELECT * FROM Usuarios";
-		return db.rawQuery(sql, null);
-		
-	}
+
 	
 	// TABLA CUESTIONARIOS
 	public Cursor seleccionarTodosLosCuestionarios(){

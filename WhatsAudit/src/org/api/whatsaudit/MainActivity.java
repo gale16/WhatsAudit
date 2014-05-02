@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 	
 	private Button butEntrar, butRegistro, butSalir;
-	private EditText editUsuario, editContraseña;
+	private EditText editUsuario, editContrasenia;
 	private Intent intentMenu, intentRegistro;
 	
 	private boolean invisible;
@@ -27,11 +27,11 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		editUsuario = (EditText) findViewById(R.id.editTextUsuario);
-		editContraseña = (EditText) findViewById(R.id.editTextContrasena);
+		editContrasenia = (EditText) findViewById(R.id.editTextContrasena);
 		
 		//Borrar cuando no se necesite
 		editUsuario.setText("0");
-		editContraseña.setText("admin");
+		editContrasenia.setText("admin");
 		
 		butEntrar = (Button) findViewById(R.id.buttonEntrar);
 		butEntrar.setOnClickListener(new View.OnClickListener() {
@@ -40,24 +40,29 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				boolean invisible = false;
 				intentMenu = new Intent(MainActivity.this,MainMenu.class);
-				int idUsuario = Integer.parseInt(editUsuario.getText().toString());
-				String password = editContraseña.getText().toString();
+				String password = editContrasenia.getText().toString();
 				
-				if(!existeUsuario(idUsuario)){
-					if(coincidenContraseñas(idUsuario, password)){
-						if(!comprobarSiAdmin(idUsuario)){
-							invisible = true;
-						}					
-						intentMenu.putExtra("Invisible", invisible);
-						intentMenu.putExtra("idUsuario", idUsuario);
-						startActivity(intentMenu);
+				if(!comprobarSiUsuarioVacio()){
+				int idUsuario = Integer.parseInt(editUsuario.getText().toString());
+					if(!existeUsuario(idUsuario)){
+						if(coincidenContraseñas(idUsuario, password)){
+							if(!comprobarSiAdmin(idUsuario)){
+								invisible = true;
+							}					
+							intentMenu.putExtra("Invisible", invisible);
+							intentMenu.putExtra("idUsuario", idUsuario);
+							startActivity(intentMenu);
+						}
+						else{
+							Toast.makeText(getApplicationContext(), "La contraseña es incorrecta", 2500).show();
+						}
 					}
 					else{
-						Toast.makeText(getApplicationContext(), "La contraseña es incorrecta", 2500).show();
+						Toast.makeText(getApplicationContext(), "El usuario no existe", 2500).show();
 					}
 				}
 				else{
-					Toast.makeText(getApplicationContext(), "El usuario no existe", 2500).show();
+					Toast.makeText(getApplicationContext(), "Campo de usuario vacío. Escriba su usuario", 2500).show();
 				}
 			}
 		});
@@ -146,5 +151,12 @@ public class MainActivity extends Activity {
 		return noExisteUsuario;
 	}
 	
-	
+	private boolean comprobarSiUsuarioVacio(){
+		boolean vacio = false;
+		if(editUsuario.getText().toString().compareTo("") == 0){
+			vacio = true;
+		}
+		
+		return vacio;
+	}
 }
