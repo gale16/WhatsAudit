@@ -6,15 +6,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainListaConsultar extends FragmentActivity implements IListFragmentListener{
 	
-	private TextView txtTitulo, txtPreg1, txtPreg2, txtPreg3, txtResp1, txtResp2, txtResp3;
-	private Button butBorrar;
-	private String NombrePlantilla;
 	private int idUser;
 	private boolean esAdmin;
 	

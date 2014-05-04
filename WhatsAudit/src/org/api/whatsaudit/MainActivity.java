@@ -29,10 +29,6 @@ public class MainActivity extends Activity {
 		editUsuario = (EditText) findViewById(R.id.editTextUsuario);
 		editContrasenia = (EditText) findViewById(R.id.editTextContrasena);
 		
-		//Borrar cuando no se necesite
-		editUsuario.setText("0");
-		editContrasenia.setText("admin");
-		
 		butEntrar = (Button) findViewById(R.id.buttonEntrar);
 		butEntrar.setOnClickListener(new View.OnClickListener() {
 			

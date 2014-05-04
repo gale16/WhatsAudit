@@ -37,7 +37,6 @@ public class MainListaContestar extends FragmentActivity implements IListFragmen
 		}
 		else{
 			Toast.makeText(getApplicationContext(), "Este cuestionario ya ha sido contestado ", 2000).show();
-			
 		}
 
 	}

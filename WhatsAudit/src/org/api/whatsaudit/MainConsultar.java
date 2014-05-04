@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebChromeClient.CustomViewCallback;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;

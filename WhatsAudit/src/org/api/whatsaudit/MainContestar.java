@@ -1,11 +1,9 @@
 package org.api.whatsaudit;
 
-import org.api.whatsaudit.FragmentLista.IListFragmentListener;
 
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
